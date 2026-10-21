@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>hshshs</title>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7cfdd; --dot:#eeaec6; --paper:#fffafb; --ink:#6b2142; --soft:#a8587a;
+  --pink:#f0679c; --tape:#ffb3cf; --line:#e9b3c8; --mad:#d6285f;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#2b0f1e; --dot:#3d1830; --paper:#44203a; --ink:#ffe1ec; --soft:#f0a3c1;
+    --pink:#ff7aa9; --tape:#8a3a62; --line:#7a3d62; --mad:#ff6b93;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#2b0f1e; --dot:#3d1830; --paper:#44203a; --ink:#ffe1ec; --soft:#f0a3c1;
+  --pink:#ff7aa9; --tape:#8a3a62; --line:#7a3d62; --mad:#ff6b93;
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;min-height:100%;font-family:'Gaegu','Segoe Print','Bradley Hand',cursive;
+  font-size:21px;color:var(--ink);background-color:var(--bg);
+  background-image:radial-gradient(var(--dot) 1.6px,transparent 1.8px);background-size:22px 22px;
+  display:flex;align-items:center;justify-content:center;padding:40px 16px;overflow-x:hidden;
+}
+.doodle{position:fixed;width:44px;height:44px;opacity:.7;animation:bob 5s ease-in-out infinite;pointer-events:none}
+.doodle path{fill:none;stroke:var(--pink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.d1{top:8%;left:7%;rotate:-14deg}
+.d2{top:16%;right:9%;width:30px;height:30px;rotate:12deg;animation-delay:-2s}
+.d3{bottom:10%;left:12%;width:34px;height:34px;rotate:8deg;animation-delay:-3.5s}
+.d4{bottom:14%;right:6%;rotate:-8deg;animation-delay:-1s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.paper{
+  position:relative;width:100%;max-width:440px;background:var(--paper);rotate:-1.2deg;
+  padding:38px 28px 34px;border-radius:6px 10px 8px 12px;
+  background-image:repeating-linear-gradient(transparent 0 33px,var(--line) 33px 34px);background-position:0 12px;
+  box-shadow:2px 3px 0 var(--line),6px 10px 22px rgba(107,33,66,.18);
+}
+.tape{
+  position:absolute;top:-16px;left:50%;width:116px;height:30px;translate:-50% 0;rotate:3deg;
+  background:repeating-linear-gradient(135deg,var(--tape) 0 8px,color-mix(in srgb,var(--tape) 70%,#fff) 8px 16px);
+  opacity:.92;
+}
+.head{display:flex;align-items:flex-end;gap:12px}
+.head svg{width:54px;height:54px;flex:none;rotate:-6deg;animation:thump 1.6s ease-in-out infinite}
+.head path{fill:var(--pink);fill-opacity:.2;stroke:var(--pink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s .2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes thump{0%,100%{scale:1}12%{scale:1.14}24%{scale:1}36%{scale:1.08}}
+h1{margin:0;font-size:36px;line-height:1;font-weight:700}
+.out{margin:22px 0 0;rotate:-1deg}
+.love{display:inline-block;white-space:nowrap;font-size:clamp(18px,6.8vw,36px);font-weight:700;line-height:1.15;color:var(--pink);animation:wipe 1.3s steps(22) both}
+@keyframes wipe{from{clip-path:inset(-6px 100% -6px 0)}to{clip-path:inset(-6px -4px -6px 0)}}
+.angry{font-size:76px;line-height:1;display:inline-block;animation:shake .5s 2}
+@keyframes shake{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-8px) rotate(-6deg)}40%{transform:translateX(8px) rotate(6deg)}60%{transform:translateX(-6px) rotate(-4deg)}80%{transform:translateX(6px) rotate(4deg)}}
+.mad{margin-top:6px;font-size:clamp(30px,9vw,40px);font-weight:700;line-height:1.1;color:var(--mad)}
+.again{margin-top:4px;font-size:26px;color:var(--soft)}
+.choices{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px}
+.choices:empty{display:none}
+button{
+  font:inherit;font-size:24px;font-weight:700;color:#fff;background:var(--pink);cursor:pointer;
+  border:2.5px solid var(--ink);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;
+  padding:8px 24px;box-shadow:3px 4px 0 var(--ink);rotate:2deg;transition:transform .1s,box-shadow .1s;
+}
+button+button{rotate:-2deg;border-radius:18px 255px 18px 225px/225px 18px 255px 18px}
+button.alt{background:var(--paper);color:var(--ink)}
+button:hover{transform:translate(-1px,-2px);box-shadow:4px 6px 0 var(--ink)}
+button:active{transform:translate(3px,4px);box-shadow:0 0 0 var(--ink)}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.head path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<svg class="doodle d1" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C10 40 4 26 10 16C16 6 29 8 32 20C35 8 48 6 54 16C60 26 54 40 32 56Z"/></svg>
+<svg class="doodle d2" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C10 40 4 26 10 16C16 6 29 8 32 20C35 8 48 6 54 16C60 26 54 40 32 56Z"/></svg>
+<svg class="doodle d3" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C10 40 4 26 10 16C16 6 29 8 32 20C35 8 48 6 54 16C60 26 54 40 32 56Z"/></svg>
+<svg class="doodle d4" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C10 40 4 26 10 16C16 6 29 8 32 20C35 8 48 6 54 16C60 26 54 40 32 56Z"/></svg>
+
+<main class="paper">
+  <div class="tape" aria-hidden="true"></div>
+  <div class="head">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 56C10 40 4 26 10 16C16 6 29 8 32 20C35 8 48 6 54 16C60 26 54 40 32 56Z"/></svg>
+    <h1>do you miss me?</h1>
+  </div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="choices" id="choices"></div>
+</main>
+<script>
+(function(){
+  var out=document.getElementById('out'),choices=document.getElementById('choices');
+  var YES='<button type="button" data-a="yes">yes baby</button>';
+  function start(){
+    out.innerHTML='';
+    choices.innerHTML=YES+'<button type="button" class="alt" data-a="no">no bff</button>';
+  }
+  function angry(){
+    out.innerHTML='<div class="angry" aria-hidden="true">😠</div><div class="mad">what did u just say!?</div><div class="again">select again!</div>';
+    choices.innerHTML=YES+YES;
+    choices.querySelector('button').focus({preventScroll:true});
+  }
+  function yes(){
+    choices.innerHTML='';
+    out.innerHTML='<span class="love">i miss you more, baby!</span>';
+  }
+  choices.addEventListener('click',function(e){
+    var b=e.target.closest('button');
+    if(!b)return;
+    if(b.dataset.a==='no')angry(); else yes();
+  });
+  start();
+})();
+</script>
+</body>
+</html>
